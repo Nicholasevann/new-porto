@@ -275,4 +275,4 @@ const educations = [
   },
 ];
 
-export { list, experiences, educations };
+export { experiences, educations };

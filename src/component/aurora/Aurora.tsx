@@ -1,5 +1,6 @@
+/* eslint-disable prefer-const */
 import { Renderer, Program, Mesh, Color, Triangle } from "ogl";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 
 import "./Aurora.css";
 
@@ -111,7 +112,13 @@ void main() {
 }
 `;
 
-export default function Aurora(props) {
+export default function Aurora(props: {
+  colorStops?: string[];
+  amplitude?: number;
+  blend?: number;
+  time?: number;
+  speed?: number;
+}) {
   const {
     colorStops = ["#00d8ff", "#7cff67", "#00d8ff"],
     amplitude = 1.0,
@@ -120,7 +127,18 @@ export default function Aurora(props) {
   const propsRef = useRef(props);
   propsRef.current = props;
 
-  const ctnDom = useRef(null);
+  const ctnDom = useRef<HTMLDivElement | null>(null);
+
+  const resize = useCallback((renderer?: Renderer, program?: Program) => {
+    const ctn = ctnDom.current;
+    if (!ctn || !renderer) return;
+    const width = ctn.offsetWidth;
+    const height = ctn.offsetHeight;
+    renderer.setSize(width, height);
+    if (program) {
+      program.uniforms.uResolution.value = [width, height];
+    }
+  }, []);
 
   useEffect(() => {
     const ctn = ctnDom.current;
@@ -137,18 +155,12 @@ export default function Aurora(props) {
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.canvas.style.backgroundColor = "transparent";
 
-    let program;
+    let program: Program | undefined;
 
-    function resize() {
-      if (!ctn) return;
-      const width = ctn.offsetWidth;
-      const height = ctn.offsetHeight;
-      renderer.setSize(width, height);
-      if (program) {
-        program.uniforms.uResolution.value = [width, height];
-      }
+    function handleResize() {
+      resize(renderer, program);
     }
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", handleResize);
 
     const geometry = new Triangle(gl);
     if (geometry.attributes.uv) {
@@ -176,33 +188,35 @@ export default function Aurora(props) {
     ctn.appendChild(gl.canvas);
 
     let animateId = 0;
-    const update = (t) => {
+    const update = (t: number) => {
       animateId = requestAnimationFrame(update);
       const { time = t * 0.01, speed = 1.0 } = propsRef.current;
-      program.uniforms.uTime.value = time * speed * 0.1;
-      program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
-      program.uniforms.uBlend.value = propsRef.current.blend ?? blend;
-      const stops = propsRef.current.colorStops ?? colorStops;
-      program.uniforms.uColorStops.value = stops.map((hex) => {
-        const c = new Color(hex);
-        return [c.r, c.g, c.b];
-      });
+      if (program) {
+        program.uniforms.uTime.value = time * speed * 0.1;
+        program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
+        program.uniforms.uBlend.value = propsRef.current.blend ?? blend;
+        const stops = propsRef.current.colorStops ?? colorStops;
+        program.uniforms.uColorStops.value = stops.map((hex: string) => {
+          const c = new Color(hex);
+          return [c.r, c.g, c.b];
+        });
+      }
       renderer.render({ scene: mesh });
     };
     animateId = requestAnimationFrame(update);
 
-    resize();
+    resize(renderer, program);
 
     return () => {
       cancelAnimationFrame(animateId);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", handleResize);
       if (ctn && gl.canvas.parentNode === ctn) {
         ctn.removeChild(gl.canvas);
       }
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [amplitude]);
+  }, [amplitude, blend, colorStops, resize]);
 
   return <div ref={ctnDom} className="aurora-container" />;
 }
