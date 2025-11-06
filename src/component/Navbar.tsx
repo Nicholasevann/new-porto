@@ -1,12 +1,11 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-
+import styles from "./glass.module.css";
 const Navbar = () => {
   return (
     <nav
-      className={`px-5 w-full flex items-center py-3 fixed top-0 z-20 bg-black/80
-      }`}
+      className={`${styles.glassCard} backdrop-blur-md  px-5 w-full flex items-center py-3 fixed top-0 z-50`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
@@ -23,7 +22,7 @@ const Navbar = () => {
 
         <div className="sm:flex gap-5">
           <div
-            className={`top2 ${"text-secondary"} hover:text-white text-[15px] font-medium cursor-pointer`}
+            className={`top2 ${"text-secondary"} hover:text-white text-[15px] font-bold cursor-pointer`}
           >
             <a
               href="https://drive.google.com/file/d/1zIrmM5SmGkEqYfi2hbf_u-sQSnxDtQ4S/view?usp=drive_link"

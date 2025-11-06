@@ -55,11 +55,10 @@ const Project = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          className="text-center mb-12"
+          className="text-center mb-4"
         >
-          <p className="text-gray-400 text-lg mb-4">My work</p>
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
-            Projects.
+            My Projects.
           </h2>
         </motion.div>
 

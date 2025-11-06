@@ -4,6 +4,8 @@ import { AiOutlineGithub } from "react-icons/ai";
 import { ImLinkedin } from "react-icons/im";
 import { BiLinkAlt } from "react-icons/bi";
 import GridMotion from "./grid-motion/GridMotion";
+import styles from "./glass.module.css";
+
 // note: you'll need to make sure the parent container of this component is sized properly
 const items = [
   "https://d15dqoqu1cwclwvz.public.blob.vercel-storage.com/Dashboard-Detail-A03sYf8jCCbChxzPMyU2q6dDCnTz4P.png",
@@ -41,9 +43,11 @@ const Hero = () => {
       <div className="flex">
         <GridMotion items={items} />
         <div
-          className={`head1 h-screen items-center  max-w-7xl mx-auto  flex flex-row gap-5 z-50`}
+          className={`head1 h-screen items-center  max-w-7xl mx-auto  flex flex-row gap-5 z-10`}
         >
-          <div className="head2 bg-black/80 rounded-lg p-10 pb-20">
+          <div
+            className={`head2 ${styles.glassCard} backdrop-blur-md  rounded-lg p-10 pb-20 z-20`}
+          >
             <h1 className={` text-white text-5xl`}>
               Hi there, I&apos;m{" "}
               <p className="name text-white">Nicholas Evan</p>

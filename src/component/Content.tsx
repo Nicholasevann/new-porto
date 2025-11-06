@@ -22,7 +22,7 @@ const ContentNavigation = () => {
   };
 
   return (
-    <nav className="nav z-50 flex gap-4 fixed bottom-8 left-1/2 -translate-x-1/2 bg-black/80 rounded-full px-6 py-3 shadow-lg">
+    <nav className="nav z-50 flex gap-4 fixed bottom-8 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur-md shadow-lg rounded-full px-6 py-3 ">
       <a
         href="#"
         onClick={(e) => {

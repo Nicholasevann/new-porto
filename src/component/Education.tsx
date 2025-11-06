@@ -3,12 +3,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import { educations } from "../constants";
 import Image, { StaticImageData } from "next/image";
-
+import stylesGlass from "./glass.module.css";
+import stylesGlassWhite from "./glass-white.module.css";
 // Dummy styles object if not imported elsewhere
 const styles = {
   padding: "p-8",
-  sectionSubText: "text-gray-500 text-lg mb-2",
-  sectionHeadText: "text-3xl font-bold text-black mb-4",
+  sectionSubText: "text-white text-lg mb-2",
+  sectionHeadText: "text-3xl font-bold text-white text-center",
 };
 
 type EducationCardProps = {
@@ -33,7 +34,7 @@ const EducationCard: React.FC<EducationCardProps> = ({
     initial="hidden"
     whileInView="show"
     viewport={{ once: true, amount: 0.3 }}
-    className="bg-black p-6 flex flex-col rounded-3xl w-full space-y-4"
+    className={` p-6 flex flex-col rounded-3xl w-full space-y-4 ${stylesGlass.glassCard} backdrop-blur-md`}
   >
     <div className="flex flex-col items-center">
       <Image
@@ -63,17 +64,16 @@ const Education = () => {
   return (
     <div className="p-10 lg:p-20">
       <div
-        className="mt-12 bg-white rounded-[20px] max-w-[1440px] mx-auto"
+        className={`mt-12  rounded-[20px] max-w-[1440px] mx-auto ${stylesGlassWhite.glassCard}`}
         id="education"
       >
-        <div className={`bg-white rounded-2xl ${styles.padding} `}>
+        <div className={`rounded-2xl ${styles.padding} `}>
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <p className={styles.sectionSubText}>Education Details...</p>
-            <h2 className={styles.sectionHeadText}>Education.</h2>
+            <h2 className={styles.sectionHeadText}>Education</h2>
           </motion.div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-8 pb-14">

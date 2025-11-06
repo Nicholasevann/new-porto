@@ -7,7 +7,7 @@ const AboutMe: React.FC = () => {
   const router = useRouter();
   return (
     <section
-      className="w-full min-h-[70vh] flex items-center justify-center bg-black text-white py-12 px-4"
+      className="w-full min-h-[70vh] flex items-center justify-center bg-black text-white p-10 lg:p-20"
       id="about"
     >
       <div className="max-w-[1440px] w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">

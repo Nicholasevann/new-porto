@@ -1,0 +1,49 @@
+.glassCard {
+  width: 100%;
+  /* bg-black/80 equivalent */
+  background: rgba(0, 0, 0, 0.8);
+  /* backdrop-blur-md equivalent (12px) */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* shadow-lg equivalent */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  color: #fff;
+  overflow: hidden;
+  z-index: 1;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  will-change: transform;
+}
+
+/* thin shiny top line */
+.glassCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+}
+
+/* subtle vertical highlight on the left */
+.glassCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    transparent,
+    rgba(255, 255, 255, 0.02)
+  );
+}
