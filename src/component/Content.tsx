@@ -22,14 +22,14 @@ const ContentNavigation = () => {
   };
 
   return (
-    <nav className="nav z-50 flex gap-4 fixed bottom-8 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur-md shadow-lg rounded-full px-6 py-3 ">
+    <nav className="nav z-50 flex gap-4 fixed bottom-8 left-1/2 -translate-x-1/2 bg-white/40 backdrop-blur-sm shadow-lg rounded-full px-6 py-3 ">
       <a
         href="#"
         onClick={(e) => {
           e.preventDefault();
           handleNavClick("#");
         }}
-        className={activeNav === "#" ? "active text-white" : "text-gray-400"}
+        className={activeNav === "#" ? "active text-gray-100" : "text-black"}
         aria-label="Home"
       >
         <AiOutlineHome size={24} />
@@ -41,7 +41,7 @@ const ContentNavigation = () => {
           handleNavClick("#about");
         }}
         className={
-          activeNav === "#about" ? "active text-white" : "text-gray-400"
+          activeNav === "#about" ? "active text-gray-100" : "text-black"
         }
         aria-label="about"
       >
@@ -54,7 +54,7 @@ const ContentNavigation = () => {
           handleNavClick("#education");
         }}
         className={
-          activeNav === "#education" ? "active text-white" : "text-gray-400"
+          activeNav === "#education" ? "active text-gray-100" : "text-black"
         }
         aria-label="Education"
       >
@@ -67,7 +67,7 @@ const ContentNavigation = () => {
           handleNavClick("#project");
         }}
         className={
-          activeNav === "#project" ? "active text-white" : "text-gray-400"
+          activeNav === "#project" ? "active text-gray-100" : "text-black"
         }
         aria-label="Projects"
       >
@@ -80,7 +80,7 @@ const ContentNavigation = () => {
           handleNavClick("#experience");
         }}
         className={
-          activeNav === "#experience" ? "active text-white" : "text-gray-400"
+          activeNav === "#experience" ? "active text-gray-100" : "text-black"
         }
         aria-label="Experience"
       >
@@ -93,7 +93,7 @@ const ContentNavigation = () => {
           handleNavClick("#contact");
         }}
         className={
-          activeNav === "#contact" ? "active text-white" : "text-gray-400"
+          activeNav === "#contact" ? "active text-white" : "text-black"
         }
         aria-label="Contact"
       >

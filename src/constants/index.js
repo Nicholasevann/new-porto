@@ -180,10 +180,24 @@ export const listProject = [
 
 const experiences = [
   {
+    title: "Fullstack Website & Mobile Developer",
+    company_name: "PT B One Consulting",
+    iconBg: "#383E56",
+    date: "September 2024 - Current",
+    location: "Bali",
+    points: [
+      "Built full‑stack web applications using Next.js, Vue.js, Nest.Js and Express.js with TypeScript.",
+      "Developed cross‑platform mobile apps using Flutter and React Native.",
+      "Designed and implemented RESTful APIs and microservices with Node.js/Express and Flask.",
+      "Integrated third‑party services (payments, analytics, auth) and optimized CI/CD pipelines.",
+      "Improved app performance, accessibility and test coverage; collaborated closely with designers and product owners.",
+    ],
+  },
+  {
     title: "Senior Frontend & Mobile Developer",
     company_name: "PT B One Consulting",
     iconBg: "#383E56",
-    date: "September 2024 - Present",
+    date: "September 2024 - September 2025",
     location: "Bali",
     points: [
       "Lead front-end and mobile development projects, ensuring high-quality deliverables.",

@@ -84,10 +84,10 @@ const ContactForm: React.FC = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative z-10 w-full max-w-4xl grid md:grid-cols-2 bg-white shadow-2xl rounded-2xl overflow-hidden"
+        className="relative z-10 w-full max-w-4xl grid md:grid-cols-2 rounded-2xl overflow-hidden"
       >
         {/* Contact Information Side */}
-        <div className="bg-black p-10 text-white flex flex-col justify-center">
+        <div className="bg-black/50 backdrop-blur-lg border-r border-white/20 p-10 text-white flex flex-col justify-center">
           <h2 className="text-3xl font-bold mb-6">Get in Touch</h2>
           <p className="mb-8 text-blue-100">
             Have a project in mind or just want to say hello? I&apos;d love to
@@ -120,7 +120,7 @@ const ContactForm: React.FC = () => {
         </div>
 
         {/* Form Side */}
-        <div className="p-10">
+        <div className="bg-white/60 backdrop-blur-lg p-10">
           <form
             ref={formRef}
             onSubmit={handleSubmit}

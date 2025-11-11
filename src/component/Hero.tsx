@@ -43,14 +43,14 @@ const Hero = () => {
       <div className="flex">
         <GridMotion items={items} />
         <div
-          className={`head1 h-screen items-center  max-w-7xl mx-auto  flex flex-row gap-5 z-10`}
+          className={`head1 h-screen items-center  max-w-7xl mx-auto  flex flex-row gap-5 z-10 p-5`}
         >
           <div
             className={`head2 ${styles.glassCard} backdrop-blur-md  rounded-lg p-10 pb-20 z-20`}
           >
-            <h1 className={` text-white text-5xl`}>
+            <h1 className={` text-black text-5xl`}>
               Hi there, I&apos;m{" "}
-              <p className="name text-white">Nicholas Evan</p>
+              <p className="name text-black">Nicholas Evan</p>
             </h1>
             <h2 className="text-xl my-5">
               Fullstack Website & Mobile Developer

@@ -8,7 +8,7 @@ const Footer = () => {
         <a
           href="https://www.linkedin.com/in/nicholasevanlin/"
           target="_blank"
-          className="text-indigo-500"
+          className="text-gray-400"
         >
           Nicholas Evan
         </a>

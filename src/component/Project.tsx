@@ -17,11 +17,13 @@ const ProjectList = ({
   id: string;
 }) => (
   <motion.li
-    className={`cursor-pointer px-6 py-3 rounded-lg transition-all duration-300 ${
-      active
-        ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
-        : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-    }`}
+    className={`cursor-pointer px-6 py-3 rounded-lg transition-all duration-300
+     ${
+       active
+         ? "bg-gradient-to-r from-white/30 via-white/15 to-white/10 backdrop-blur-lg border border-white/30 text-white"
+         : "bg-white/5 backdrop-blur-sm border border-white/10 text-gray-200 hover:bg-white/10 hover:border-white/20"
+     }
+    `}
     onClick={() => setSelected(id)}
     whileHover={{ scale: 1.02 }}
     whileTap={{ scale: 0.98 }}
@@ -34,17 +36,21 @@ const ProjectList = ({
 const Project = () => {
   const [selected, setSelected] = useState<string>("website");
   const [data, setData] = useState<typeof webProject>(webProject);
+  const [caseStudy, setCaseStudy] = useState<string>("");
 
   useEffect(() => {
     switch (selected) {
       case "website":
         setData(webProject);
+        setCaseStudy("website");
         break;
       case "mobile":
         setData(mobileProject);
+        setCaseStudy("mobile");
         break;
       default:
         setData(webProject);
+        setCaseStudy("website");
     }
   }, [selected]);
 
@@ -90,6 +96,7 @@ const Project = () => {
                 damping={0.45}
                 fadeOut={0.6}
                 ease="power3.out"
+                caseStudy={caseStudy}
               />
             </div>
           </motion.div>

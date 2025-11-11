@@ -7,6 +7,7 @@ import {
 } from "react-vertical-timeline-component";
 
 import "react-vertical-timeline-component/style.min.css";
+import "./Experience.css"; // added
 
 import { experiences } from "../constants";
 
@@ -30,17 +31,24 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#1d1836",
-        color: "#fff",
+        color: "#fff", // text color stays white
+        background: "transparent", // actual glass styling moved to CSS
+        backdropFilter: "none",
       }}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      contentArrowStyle={{
+        borderRight: "7px solid rgba(255,255,255,0.6)",
+      }}
       date={experience.date}
-      iconStyle={{ background: experience.iconBg }}
+      iconStyle={{
+        background: "rgba(255,255,255,0.4)",
+        backdropFilter: "blur(10px)",
+      }}
       icon={
         <div className="flex justify-center items-center w-full h-full">
           {index + 1}
         </div>
       }
+      className="vtl-element" // optional hook for targeting
     >
       <div>
         <h3 className="text-white text-[24px] font-bold">{experience.title}</h3>

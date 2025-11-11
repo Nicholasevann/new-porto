@@ -15,14 +15,14 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <p className="sm:block text-white text-[18px] font-bold cursor-pointer flex ">
+          <p className="sm:block text-black text-[18px] font-bold cursor-pointer flex ">
             nicholasevann
           </p>
         </Link>
 
         <div className="sm:flex gap-5">
           <div
-            className={`top2 ${"text-secondary"} hover:text-white text-[15px] font-bold cursor-pointer`}
+            className={`top2 ${"text-secondary"} hover:text-black text-[15px] font-bold cursor-pointer`}
           >
             <a
               href="https://drive.google.com/file/d/1zIrmM5SmGkEqYfi2hbf_u-sQSnxDtQ4S/view?usp=drive_link"

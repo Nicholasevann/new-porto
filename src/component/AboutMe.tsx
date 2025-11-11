@@ -29,20 +29,18 @@ const AboutMe: React.FC = () => {
         </div>
         {/* Right Side: About Me Section */}
         <div>
-          <h2 className="text-3xl font-bold mb-4">About Me</h2>
-          <p className="text-white text-lg mb-4">
-            Hi! I&apos;m Nicholas Lindartono, a dedicated Frontend & Mobile
-            Developer with a strong passion for crafting seamless and dynamic
-            digital experiences. With years of experience in React JS, Flutter,
-            and Next JS, I’ve built websites and apps that not only look good
-            but perform exceptionally well.
+          <h2 className="text-3xl font-bold mb-8">About Me</h2>
+          <p className="text-white text-lg mb-8">
+            Hi! I&apos;m Nicholas Lindartono — a Fullstack Website & Mobile
+            Developer. I build high-quality web and mobile applications using
+            Next.js, React.js, Vue.js, React Native, Flutter, and backend
+            technologies like Flask, Nest JS, and Express JS. I also build
+            e-commerce sites with Shopify.
           </p>
           <p className="text-white text-lg">
-            From landing pages to complex mobile applications, I’ve led and
-            delivered projects across various industries—always staying ahead by
-            adopting the latest web technologies. I thrive on solving real-world
-            problems, working in teams, and constantly learning to create
-            user-focused solutions that exceed expectations.
+            I deliver production-ready solutions with a focus on performance,
+            accessibility and maintainability — working across frontend, backend
+            and mobile to ship complete, professional products.
           </p>
         </div>
       </div>

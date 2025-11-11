@@ -1,0 +1,52 @@
+/* glassy timeline content on top of a dark page */
+
+/* thin timeline line (center) — subtle light on dark bg */
+.vertical-timeline::before {
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* the element content box: soft white glass that works on a black page */
+.vertical-timeline-element-content {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.3)
+  ) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  color: #fff !important;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  border-radius: 12px;
+}
+
+/* subtle lift on hover/focus */
+.vertical-timeline-element-content:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* content arrow inherits a translucent border (kept in JS too) */
+.vertical-timeline-element-content::before {
+  border-right: 7px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+/* make the date label more readable */
+.vertical-timeline-element-date {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Icon background slight ring so it reads on dark */
+.vertical-timeline-element-icon {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* small responsive tweak */
+@media (max-width: 768px) {
+  .vertical-timeline-element-content {
+    border-radius: 10px;
+    padding: 1rem;
+  }
+}

@@ -34,7 +34,7 @@ const EducationCard: React.FC<EducationCardProps> = ({
     initial="hidden"
     whileInView="show"
     viewport={{ once: true, amount: 0.3 }}
-    className={` p-6 flex flex-col rounded-3xl w-full space-y-4 ${stylesGlass.glassCard} backdrop-blur-md`}
+    className={` p-6 flex flex-col rounded-3xl w-full space-y-4 bg-black/80 backdrop-blur-md`}
   >
     <div className="flex flex-col items-center">
       <Image
@@ -64,7 +64,7 @@ const Education = () => {
   return (
     <div className="p-10 lg:p-20">
       <div
-        className={`mt-12  rounded-[20px] max-w-[1440px] mx-auto ${stylesGlassWhite.glassCard}`}
+        className={`rounded-[20px] max-w-[1440px] mx-auto ${stylesGlassWhite.glassCard}`}
         id="education"
       >
         <div className={`rounded-2xl ${styles.padding} `}>

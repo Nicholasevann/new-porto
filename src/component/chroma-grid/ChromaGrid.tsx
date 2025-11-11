@@ -25,6 +25,7 @@ export interface ChromaGridProps {
   damping?: number;
   fadeOut?: number;
   ease?: string;
+  caseStudy?: string;
 }
 
 type SetterFn = (v: number | string) => void;
@@ -38,6 +39,7 @@ export const ChromaGrid: React.FC<ChromaGridProps> = ({
   damping = 0.45,
   fadeOut = 0.6,
   ease = "power3.out",
+  caseStudy,
 }) => {
   const rootRef = useRef<HTMLDivElement>(null);
   const fadeRef = useRef<HTMLDivElement>(null);
@@ -104,7 +106,9 @@ export const ChromaGrid: React.FC<ChromaGridProps> = ({
   return (
     <div
       ref={rootRef}
-      className={`chroma-grid ${className}`}
+      className={`${
+        caseStudy === "mobile" ? "chroma-grid-mobile" : "chroma-grid"
+      } ${className}`}
       style={
         {
           "--r": `${radius}px`,
@@ -118,7 +122,9 @@ export const ChromaGrid: React.FC<ChromaGridProps> = ({
       {data.map((c, i) => (
         <article
           key={i}
-          className={`chroma-card ${c.type || "website"}`}
+          className={`${
+            caseStudy === "mobile" ? "chroma-card-mobile" : "chroma-card"
+          } ${c.type || "website"}`}
           onMouseMove={handleCardMove}
           onClick={() => handleCardClick(c.url)}
           style={
@@ -146,7 +152,6 @@ export const ChromaGrid: React.FC<ChromaGridProps> = ({
           </footer>
         </article>
       ))}
-      <div className="chroma-overlay" />
       <div ref={fadeRef} className="chroma-fade" />
     </div>
   );
