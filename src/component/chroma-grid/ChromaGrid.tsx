@@ -1,19 +1,23 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import "./ChromaGrid.css";
 import Image, { StaticImageData } from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 export interface ChromaItem {
-  image: StaticImageData;
+  image: string | StaticImageData; // Use string for dynamic images
+  images?: string[]; // Array of images for modal
   title: string;
   subtitle: string;
+  description?: string;
   handle?: string;
   location?: string;
   tags?: string[];
   borderColor?: string;
   gradient?: string;
   url?: string;
-  type?: "website" | "mobile"; // Added type property
+  type?: "website" | "mobile";
 }
 
 export interface ChromaGridProps {
@@ -48,6 +52,10 @@ export const ChromaGrid: React.FC<ChromaGridProps> = ({
   const pos = useRef({ x: 0, y: 0 });
 
   const data = items ?? [];
+
+  // Modal state
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selected, setSelected] = useState<ChromaItem | null>(null);
 
   useEffect(() => {
     const el = rootRef.current;
@@ -88,10 +96,9 @@ export const ChromaGrid: React.FC<ChromaGridProps> = ({
     });
   };
 
-  const handleCardClick = (url?: string) => {
-    if (url) {
-      window.open(url, "_blank", "noopener,noreferrer");
-    }
+  const handleCardClick = (item: ChromaItem) => {
+    setSelected(item);
+    setModalOpen(true);
   };
 
   const handleCardMove: React.MouseEventHandler<HTMLElement> = (e) => {
@@ -103,57 +110,123 @@ export const ChromaGrid: React.FC<ChromaGridProps> = ({
     card.style.setProperty("--mouse-y", `${y}px`);
   };
 
+  // Responsive orientation
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 700;
+
   return (
-    <div
-      ref={rootRef}
-      className={`${
-        caseStudy === "mobile" ? "chroma-grid-mobile" : "chroma-grid"
-      } ${className}`}
-      style={
-        {
-          "--r": `${radius}px`,
-          "--cols": columns,
-          "--rows": rows,
-        } as React.CSSProperties
-      }
-      onPointerMove={handleMove}
-      onPointerLeave={handleLeave}
-    >
-      {data.map((c, i) => (
-        <article
-          key={i}
-          className={`${
-            caseStudy === "mobile" ? "chroma-card-mobile" : "chroma-card"
-          } ${c.type || "website"}`}
-          onMouseMove={handleCardMove}
-          onClick={() => handleCardClick(c.url)}
-          style={
-            {
-              "--card-border": c.borderColor || "transparent",
-              "--card-gradient": c.gradient,
-              cursor: c.url ? "pointer" : "default",
-            } as React.CSSProperties
-          }
-        >
-          <div className="chroma-img-wrapper">
-            <Image
-              width={400}
-              height={400}
-              src={c.image}
-              alt={c.title}
-              loading="lazy"
-            />
+    <>
+      <div
+        ref={rootRef}
+        className={`${
+          caseStudy === "mobile" ? "chroma-grid-mobile" : "chroma-grid"
+        } ${className}`}
+        style={
+          {
+            "--r": `${radius}px`,
+            "--cols": columns,
+            "--rows": rows,
+          } as React.CSSProperties
+        }
+        onPointerMove={handleMove}
+        onPointerLeave={handleLeave}
+      >
+        {data.map((c, i) => (
+          <article
+            key={i}
+            className={`${
+              caseStudy === "mobile" ? "chroma-card-mobile" : "chroma-card"
+            } ${c.type || "website"}`}
+            onMouseMove={handleCardMove}
+            onClick={() => handleCardClick(c)}
+            style={
+              {
+                "--card-border": c.borderColor || "transparent",
+                "--card-gradient": c.gradient,
+                cursor: "pointer",
+              } as React.CSSProperties
+            }
+          >
+            <div className="chroma-img-wrapper">
+              <Image
+                width={400}
+                height={400}
+                src={c.image}
+                alt={c.title}
+                loading="lazy"
+                style={{
+                  objectFit: "cover",
+                  aspectRatio: isMobile ? "3/4" : "16/9",
+                  borderRadius: "16px",
+                }}
+              />
+            </div>
+            <footer className="chroma-info">
+              <h3 className="name">{c.title}</h3>
+              {c.handle && <span className="handle">{c.handle}</span>}
+              <p className="role">{c.subtitle}</p>
+              {c.location && <span className="location">{c.location}</span>}
+            </footer>
+          </article>
+        ))}
+        <div ref={fadeRef} className="chroma-fade" />
+      </div>
+
+      {/* Modal Popup */}
+      {modalOpen && selected && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 backdrop-blur-lg p-5 md:p-10">
+          <div
+            className="relative bg-white/30 backdrop-blur-xl rounded-2xl shadow-2xl md:p-6 w-full flex flex-col items-center"
+            style={{
+              border: "1px solid rgba(255,255,255,0.18)",
+              boxShadow: "0 8px 32px 0 rgba(31,38,135,0.25)",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Swiper Images */}
+            {selected.images && selected.images.length > 0 && (
+              <Swiper
+                spaceBetween={16}
+                slidesPerView={1}
+                style={{
+                  width: "100%",
+                  height: isMobile ? 350 : 550,
+                  borderRadius: "16px",
+                }}
+                autoplay={{ delay: 3000 }}
+                loop={true}
+              >
+                {selected.images.map((img, idx) => (
+                  <SwiperSlide key={idx} className="rounded">
+                    <Image
+                      src={img}
+                      alt={selected.title + " image " + idx}
+                      fill
+                      style={{
+                        objectFit: "contain",
+                        borderRadius: "16px",
+                      }}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
+            {/* Title & Description */}
+            <div className="flex flex-col p-5 md:p-0 md:mt-10 max-w-4xl">
+              <h2 className="text-xl font-bold text-black">{selected.title}</h2>
+              <p className="mt-2 text-gray-800">
+                {selected.description || selected.subtitle}
+              </p>
+              <button
+                className="mt-6 px-4 py-2 rounded-lg bg-black/60 text-white hover:bg-black/80 transition"
+                onClick={() => setModalOpen(false)}
+              >
+                Close
+              </button>
+            </div>
           </div>
-          <footer className="chroma-info">
-            <h3 className="name">{c.title}</h3>
-            {c.handle && <span className="handle">{c.handle}</span>}
-            <p className="role">{c.subtitle}</p>
-            {c.location && <span className="location">{c.location}</span>}
-          </footer>
-        </article>
-      ))}
-      <div ref={fadeRef} className="chroma-fade" />
-    </div>
+        </div>
+      )}
+    </>
   );
 };
 

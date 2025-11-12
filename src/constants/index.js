@@ -1,14 +1,16 @@
 import { Smak, Unikom } from "../assets/logo";
 import mobile from "../assets/mobile-projects";
 import website from "../assets/website-projects";
+import { getDriveImages } from "./getDriveImages";
 
+const API_KEY = "AIzaSyALn1intEk8tYJgJQG5GVXcmQzWe2aMNG4";
 export const webProject = [
   {
     id: 1,
     title: "K Club Partner - Investment Platform",
     subtitle: "Next.js & Investment Platform",
     description:
-      "Investment property website with secure data handling for property listings and transactions",
+      "Full-featured investment property platform built with Next.js, featuring secure authentication, real-time property listings, investment portfolio management, and encrypted transaction processing. Implements advanced search filters, detailed property analytics, and investor dashboard with comprehensive reporting capabilities.",
     image: website.kclub,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/18FxTca_YaZh5ZOjhNl3w-Gm8vwal6uq6?usp=drive_link",
@@ -19,19 +21,18 @@ export const webProject = [
     title: "Bali Smart Investment - Investment & Rent Platform",
     subtitle: "Flask & Python",
     description:
-      "Investment and rental property platform with secure transaction handling and data management",
+      "Comprehensive dual-purpose platform combining investment opportunities with rental property management. Features include automated rental yield calculations, tenant screening workflows, secure payment gateway integration, investment tracking dashboards, and detailed financial reporting for both property investors and landlords.",
     image: website.bsi,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/19rrEqEYSKnqV--EElWO8tDDjMRW82bZ7?usp=drive_link",
     tags: ["Next JS", "Investment", "Property Rental"],
   },
-
   {
     id: 3,
     title: "Natalie - Online Education Platform",
     subtitle: "React.js & Online Education",
     description:
-      "Comprehensive platform for online courses with content management and payment processing",
+      "Robust e-learning platform built with React.js featuring interactive course creation tools, video streaming capabilities, progress tracking, quiz and assignment modules, integrated payment processing, certificate generation, and comprehensive admin dashboard for course management and student analytics.",
     image: website.natalie,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1sqr0tzwLkei1xxef3U_pK_1m9t_E1Xau?usp=drive_link",
@@ -42,19 +43,18 @@ export const webProject = [
     title: "Massai - Restaurant Reservation System",
     subtitle: "Next.js & Reservations",
     description:
-      "Restaurant and nightclub reservation website with visually appealing landing page",
+      "Elegant restaurant and nightclub reservation platform featuring real-time table availability, interactive seating charts, automated booking confirmations via email/SMS, special event management, guest list coordination, and stunning visual landing page with immersive photo galleries and dynamic menu displays.",
     image: website.massai,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1ITE5PSubFniqw-VE7OrGmHO5SxqWNyQ2?usp=drive_link",
     tags: ["Next.js", "Reservations", "User Engagement"],
   },
-
   {
     id: 12,
     title: "Total Energy - Data Management System",
     subtitle: "Flask & Python",
     description:
-      "Data management system for energy consumption tracking and reporting",
+      "Advanced energy consumption monitoring system built with Vue.js and Nuxt, providing real-time energy usage tracking, historical data analysis, automated anomaly detection, consumption forecasting, cost optimization recommendations, and customizable reporting dashboards with export capabilities for stakeholder presentations.",
     image: website.total,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1uXDs_JnTzznKlgZNA1QXwROIA2uwZ6-t?usp=drive_link",
@@ -65,7 +65,7 @@ export const webProject = [
     title: "Banjarnegara Health Department - Health Examination System",
     subtitle: "React.js & Health Management",
     description:
-      "Health examination system with custom forms and comprehensive reporting features",
+      "Comprehensive health examination management system featuring customizable health screening forms, patient record management, appointment scheduling, digital health report generation, multi-parameter health tracking, statistical analysis tools, and detailed epidemiological reporting for public health monitoring and intervention planning.",
     image: website.eraport,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1pOevEhJ4jOvC1ZGZNe8hG_jrWBZ_fpPj?usp=drive_link",
@@ -76,7 +76,7 @@ export const webProject = [
     title: "B One Consulting - Company Website",
     subtitle: "Next.js & Company Website",
     description:
-      "Professional company website with responsive design for optimal performance across devices",
+      "Modern corporate website built with Next.js featuring responsive design across all devices, SEO optimization, dynamic content management, service showcase sections, client testimonials, integrated contact forms, blog functionality, and smooth animations delivering an exceptional user experience that effectively communicates the company's expertise and value proposition.",
     image: website.bone,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1JYC1xaDcFQLDTbzil0q285jbFqAcshT1?usp=drive_link",
@@ -87,7 +87,7 @@ export const webProject = [
     title: "The Plug - Brand Website",
     subtitle: "React.js & Brand Website",
     description:
-      "Brand Website with smooth user experience and modern UI design",
+      "Contemporary brand showcase website crafted with React.js, featuring cutting-edge UI/UX design, smooth scroll animations, interactive product displays, brand storytelling sections, social media integration, newsletter subscription, and optimized performance delivering lightning-fast load times and seamless navigation throughout the user journey.",
     image: website.theplug,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1fk_UY0OggvAtVxZ0w2tAaNV4cuXkIWFs?usp=drive_link",
@@ -98,7 +98,7 @@ export const webProject = [
     title: "North Sumatra Health Center - Health Management System",
     subtitle: "Vue.js & Health Management",
     description:
-      "Comprehensive health center application with service registration and robust reporting features",
+      "Enterprise-level health center management application built with Vue.js and Nuxt, featuring patient registration workflows, appointment scheduling, medical record digitization, prescription management, laboratory result tracking, billing and insurance integration, multi-facility reporting, and comprehensive analytics for operational efficiency and patient care quality monitoring.",
     image: website.epuskesmas,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1nNfezP3ODiEdR9vXhAwPzx2Itqfe36iT?usp=drive_link",
@@ -109,7 +109,7 @@ export const webProject = [
     title: "ERP Hotel System - Accounting Management",
     subtitle: "Next.js & Financial Reporting",
     description:
-      "Hotel ERP system with journal view, financial reports, and cash tracking features",
+      "Sophisticated hotel ERP accounting module built with Next.js, featuring double-entry bookkeeping, automated journal entries, general ledger management, accounts payable/receivable tracking, cash flow monitoring, budget planning tools, financial statement generation, audit trail capabilities, and multi-property consolidation reporting for hotel chain management.",
     image: website.accounting,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1K4xJXmH9M70A5JavisjCcfXY74jV4gTy?usp=drive_link",
@@ -120,19 +120,18 @@ export const webProject = [
     title: "Plural - Company Website",
     subtitle: "Next.js & Custom Design",
     description:
-      "Customized design and functionality created in collaboration with clients",
+      "Bespoke corporate website developed through close client collaboration, featuring unique custom design elements, tailored functionality specific to business needs, interactive service presentations, dynamic portfolio showcasing, integrated CRM capabilities, and personalized user experiences that perfectly align with the client's brand identity and business objectives.",
     image: website.plural,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1zyluqJBpET37wIPk2UrIojvjCwwkiQac?usp=drive_link",
     tags: ["Next.js", "Custom Design", "Client Collaboration"],
   },
-
   {
     id: 10,
     title: "Toll Road Simulation - Interactive Application",
     subtitle: "Flask & Python",
     description:
-      "Interactive toll road simulation with map visualization and vehicle movement tracking",
+      "Advanced toll road simulation application built with Flask and Python, featuring interactive map visualization with real-time vehicle movement tracking, traffic flow analysis, toll collection simulation, route optimization algorithms, congestion prediction modeling, and comprehensive data analytics for transportation planning and infrastructure optimization studies.",
     image: website.tollroad,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1AvRJ28KHWAhjFv2jcZu19EaeAnJ4Zdag?usp=drive_link",
@@ -143,10 +142,10 @@ export const webProject = [
 export const mobileProject = [
   {
     id: 11,
-    title: "The Plug Mobile App",
+    title: "The Plug Mobile App - Deals App",
     subtitle: "Flutter & Cross-platform",
     description:
-      "Cross-platform mobile application with seamless UI/UX and core functionalities",
+      "Feature-rich cross-platform mobile application built with Flutter, offering seamless deals discovery, push notifications for new offers, location-based deal recommendations, favorites management, in-app purchases, social sharing capabilities, and intuitive user interface with smooth animations ensuring consistent experience across iOS and Android platforms.",
     image: mobile.theplug,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/12mC8r1FKj-mDfmoE2JMc3VF_KjXMIfDa?usp=drive_link",
@@ -154,10 +153,10 @@ export const mobileProject = [
   },
   {
     id: 14,
-    title: "Raindo Ruscargo",
+    title: "Raindo Ruscargo - Logistics App",
     subtitle: "Flutter & Maintenance",
     description:
-      "Bug fixing and maintenance for released application with client collaboration",
+      "Comprehensive logistics application maintenance project involving critical bug fixes, performance optimization, crash resolution, API integration improvements, user experience enhancements, and feature updates. Collaborated closely with client stakeholders to prioritize issues, implement solutions, and ensure stable production deployment with minimal downtime.",
     image: mobile.ruscargo,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1MWvxeAwdpTXjDCmklrv570fhP-3o2CZ1?usp=drive_link",
@@ -168,7 +167,7 @@ export const mobileProject = [
     title: "Xperience - Employee Management App",
     subtitle: "Flutter & Management",
     description:
-      "Employee management application with data system improvements and bug fixes",
+      "Modern employee management mobile application featuring attendance tracking with GPS verification, leave request workflows, performance evaluation modules, task assignment and tracking, employee directory, internal communication tools, payroll integration, and comprehensive reporting. Enhanced data synchronization architecture and resolved critical bugs to improve reliability.",
     image: mobile.bone,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1Y3vh2e-gUJRadeP-LKrS6xuinkm3tedc?usp=drive_link",
@@ -176,10 +175,10 @@ export const mobileProject = [
   },
   {
     id: 12,
-    title: "Employee Cooperative Toyota",
+    title: "Employee Cooperative Toyota - Cooperative App",
     subtitle: "Flutter & Enterprise",
     description:
-      "Enterprise app maintenance with new feature integration and third-party coordination",
+      "Enterprise-grade cooperative management application for Toyota employees, featuring loan application and approval workflows, savings management, member contribution tracking, dividend calculations, financial statement access, and transaction history. Maintained and enhanced existing features while integrating new payment gateway and coordinating with third-party service providers for seamless operations.",
     image: mobile.kopkar,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1yfizrKuKTvYNg0tY5rgWRAIE7VJLQu0b?usp=drive_link",
@@ -187,22 +186,21 @@ export const mobileProject = [
   },
   {
     id: 13,
-    title: "Employee Shuttle Service",
+    title: "Employee Shuttle Service - Shuttle App",
     subtitle: "Flutter & Subscription",
     description:
-      "Subscription-based shuttle service app with strategic planning and system development",
+      "Subscription-based employee shuttle service application featuring real-time shuttle tracking with GPS, route planning and optimization, subscription plan management, automated payment processing, ride history and receipts, schedule notifications, capacity management, and seat reservation system. Led strategic planning and system architecture development from initial concept through production deployment.",
     image: mobile.tomas,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1xxN1yh6MtAueTKRnjuy2QVPUz17p0HeD?usp=drive_link",
     tags: ["Flutter", "Project Management", "Subscription Service"],
   },
-
   {
     id: 15,
-    title: "Ideabox",
+    title: "Ideabox - Idea Management App",
     subtitle: "React Native & Idea Management",
     description:
-      "Employee idea collection application with data system improvements and bug fixes",
+      "Innovative employee idea collection and management platform built with React Native, enabling staff to submit creative suggestions, vote on proposals, track idea implementation status, receive feedback from management, view trending ideas, and participate in innovation challenges. Improved data synchronization system and resolved critical bugs to enhance user engagement and idea submission reliability.",
     image: mobile.telkom,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1g83SM6yEKS91J1G7ue1bSdz3ihDfM7Py?usp=drive_link",
@@ -214,6 +212,33 @@ export const listProject = [
   { id: "website", title: "Web Development" },
   { id: "mobile", title: "Mobile Development" },
 ];
+
+function extractFolderId(url) {
+  const match = url.match(/\/folders\/([a-zA-Z0-9_-]+)/);
+  return match ? match[1] : "";
+}
+
+// Add folderId and images to all projects
+webProject.forEach((project) => {
+  project.folderId = extractFolderId(project.url);
+  project.images = [];
+});
+
+mobileProject.forEach((project) => {
+  project.folderId = extractFolderId(project.url);
+  project.images = [];
+});
+
+async function fillProjectImages(projects) {
+  for (const project of projects) {
+    if (project.folderId) {
+      project.images = await getDriveImages(project.folderId, API_KEY);
+    }
+  }
+}
+
+await fillProjectImages(webProject);
+await fillProjectImages(mobileProject);
 
 const experiences = [
   {
