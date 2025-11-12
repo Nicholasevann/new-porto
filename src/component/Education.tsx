@@ -3,7 +3,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { educations } from "../constants";
 import Image, { StaticImageData } from "next/image";
-import stylesGlass from "./glass.module.css";
 import stylesGlassWhite from "./glass-white.module.css";
 // Dummy styles object if not imported elsewhere
 const styles = {
