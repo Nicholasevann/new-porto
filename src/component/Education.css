@@ -1,0 +1,26 @@
+/* Glassy effect for Education card */
+.education-glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.3)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  color: #fff;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.education-glass:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+}
+@media (max-width: 768px) {
+  .education-glass {
+    border-radius: 10px;
+    padding: 1rem;
+  }
+}

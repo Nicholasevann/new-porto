@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { educations } from "../constants";
 import Image, { StaticImageData } from "next/image";
-import stylesGlassWhite from "./glass-white.module.css";
+import "./Education.css"; // added
 // Dummy styles object if not imported elsewhere
 const styles = {
   padding: "p-8",
@@ -33,7 +33,7 @@ const EducationCard: React.FC<EducationCardProps> = ({
     initial="hidden"
     whileInView="show"
     viewport={{ once: true, amount: 0.3 }}
-    className={` p-6 flex flex-col rounded-3xl w-full space-y-4 bg-black/80 backdrop-blur-md`}
+    className="education-glass flex flex-col w-full space-y-4"
   >
     <div className="flex flex-col items-center">
       <Image
@@ -61,24 +61,29 @@ const EducationCard: React.FC<EducationCardProps> = ({
 
 const Education = () => {
   return (
-    <div className="p-10 lg:p-20">
-      <div
-        className={`rounded-[20px] max-w-[1440px] mx-auto ${stylesGlassWhite.glassCard}`}
-        id="education"
-      >
-        <div className={`rounded-2xl ${styles.padding} `}>
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <h2 className={styles.sectionHeadText}>Education</h2>
-          </motion.div>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-8 pb-14">
-          {educations.map((education, index) => (
-            <EducationCard key={education.name} index={index} {...education} />
-          ))}
+    <div className="max-w-[1440px] mx-auto">
+      <div className="p-10 lg:p-20 ">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className="text-center mb-4"
+        >
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
+            My Education.
+          </h2>
+        </motion.div>
+        <div id="education">
+          <div className={`rounded-2xl ${styles.padding} `}></div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 ">
+            {educations.map((education, index) => (
+              <EducationCard
+                key={education.name}
+                index={index}
+                {...education}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

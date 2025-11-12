@@ -79,7 +79,10 @@ const Experience = () => {
   useEffect(() => setIsMobile(window.innerWidth <= 768), [isMobile]);
   return (
     <>
-      <motion.div id="experience" className="p-20 max-w-[1440px] mx-auto">
+      <motion.div
+        id="experience"
+        className="p-5 md:p-20 max-w-[1440px] mx-auto"
+      >
         <p className={` text-white text-xl`}>What I have done so far</p>
         <h2 className={`$ text-white text-5xl font-bold`}>Work Experience.</h2>
       </motion.div>

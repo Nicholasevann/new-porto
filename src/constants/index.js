@@ -280,7 +280,7 @@ const educations = [
     image: Unikom,
   },
   {
-    degree: "12th Grade",
+    degree: "High School Diploma",
     branch: "Science",
     marks: "Accumulations : 85",
     name: "SMAK Kolese Santo Yusup Malang Indonesia",

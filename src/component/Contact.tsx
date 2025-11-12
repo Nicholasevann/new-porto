@@ -71,7 +71,7 @@ const ContactForm: React.FC = () => {
       className="relative min-h-screen bg-black flex items-center justify-center px-4 py-12"
       id="contact"
     >
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 ">
         <Aurora
           colorStops={["#FFFFFF", "#FFFFFF", "#FFFFFF"]}
           blend={0.5}
@@ -84,7 +84,7 @@ const ContactForm: React.FC = () => {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="relative z-10 w-full max-w-4xl grid md:grid-cols-2 rounded-2xl overflow-hidden"
+        className="relative w-full max-w-4xl grid md:grid-cols-2 rounded-2xl overflow-hidden"
       >
         {/* Contact Information Side */}
         <div className="bg-black/50 backdrop-blur-lg border-r border-white/20 p-10 text-white flex flex-col justify-center">
@@ -136,7 +136,7 @@ const ContactForm: React.FC = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaUser className="text-gray-400" />
+                  <FaUser className="text-gray-700" />
                 </div>
                 <input
                   type="text"
@@ -161,7 +161,7 @@ const ContactForm: React.FC = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaEnvelope className="text-gray-400" />
+                  <FaEnvelope className="text-gray-700" />
                 </div>
                 <input
                   type="email"

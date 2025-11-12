@@ -47,19 +47,7 @@ const ContentNavigation = () => {
       >
         <BsPerson size={24} />
       </a>
-      <a
-        href="#education"
-        onClick={(e) => {
-          e.preventDefault();
-          handleNavClick("#education");
-        }}
-        className={
-          activeNav === "#education" ? "active text-gray-100" : "text-black"
-        }
-        aria-label="Education"
-      >
-        <BiBook size={24} />
-      </a>
+
       <a
         href="#project"
         onClick={(e) => {
@@ -85,6 +73,19 @@ const ContentNavigation = () => {
         aria-label="Experience"
       >
         <BsPersonWorkspace size={24} />
+      </a>
+      <a
+        href="#education"
+        onClick={(e) => {
+          e.preventDefault();
+          handleNavClick("#education");
+        }}
+        className={
+          activeNav === "#education" ? "active text-gray-100" : "text-black"
+        }
+        aria-label="Education"
+      >
+        <BiBook size={24} />
       </a>
       <a
         href="#contact"
