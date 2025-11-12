@@ -160,13 +160,13 @@
 }
 
 /* Website items use landscape orientation */
-.chroma-card .chroma-card-mobile .chroma-img-wrapper img {
+.chroma-card .chroma-img-wrapper img {
   object-fit: cover;
   object-position: top center;
 }
 
 /* Mobile items use portrait orientation */
-.chroma-card .chroma-card-mobile .chroma-img-wrapper img {
+.chroma-card-mobile .chroma-img-wrapper img {
   object-fit: cover;
   object-position: top center;
 }

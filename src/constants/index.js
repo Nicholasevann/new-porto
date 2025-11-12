@@ -5,7 +5,7 @@ import website from "../assets/website-projects";
 export const webProject = [
   {
     id: 1,
-    title: "KClub Partner",
+    title: "K Club Partner - Investment Platform",
     subtitle: "Next.js & Investment Platform",
     description:
       "Investment property website with secure data handling for property listings and transactions",
@@ -15,19 +15,20 @@ export const webProject = [
     tags: ["Next.js", "Web Development", "Property Investment"],
   },
   {
-    id: 2,
-    title: "B One Consulting",
-    subtitle: "Next.js & Landing Page",
+    id: 11,
+    title: "Bali Smart Investment - Investment & Rent Platform",
+    subtitle: "Flask & Python",
     description:
-      "Professional landing page with responsive design for optimal performance across devices",
-    image: website.bone,
+      "Investment and rental property platform with secure transaction handling and data management",
+    image: website.bsi,
     borderColor: "#fff",
-    url: "https://drive.google.com/drive/folders/1JYC1xaDcFQLDTbzil0q285jbFqAcshT1?usp=drive_link",
-    tags: ["Next.js", "Landing Page", "Responsive Design"],
+    url: "https://drive.google.com/drive/folders/19rrEqEYSKnqV--EElWO8tDDjMRW82bZ7?usp=drive_link",
+    tags: ["Next JS", "Investment", "Property Rental"],
   },
+
   {
     id: 3,
-    title: "Natalie",
+    title: "Natalie - Online Education Platform",
     subtitle: "React.js & Online Education",
     description:
       "Comprehensive platform for online courses with content management and payment processing",
@@ -38,7 +39,7 @@ export const webProject = [
   },
   {
     id: 4,
-    title: "Massai",
+    title: "Massai - Restaurant Reservation System",
     subtitle: "Next.js & Reservations",
     description:
       "Restaurant and nightclub reservation website with visually appealing landing page",
@@ -47,12 +48,46 @@ export const webProject = [
     url: "https://drive.google.com/drive/folders/1ITE5PSubFniqw-VE7OrGmHO5SxqWNyQ2?usp=drive_link",
     tags: ["Next.js", "Reservations", "User Engagement"],
   },
+
+  {
+    id: 12,
+    title: "Total Energy - Data Management System",
+    subtitle: "Flask & Python",
+    description:
+      "Data management system for energy consumption tracking and reporting",
+    image: website.total,
+    borderColor: "#fff",
+    url: "https://drive.google.com/drive/folders/1uXDs_JnTzznKlgZNA1QXwROIA2uwZ6-t?usp=drive_link",
+    tags: ["Vue JS", "Nuxt", "Data Management"],
+  },
+  {
+    id: 9,
+    title: "Banjarnegara Health Department - Health Examination System",
+    subtitle: "React.js & Health Management",
+    description:
+      "Health examination system with custom forms and comprehensive reporting features",
+    image: website.eraport,
+    borderColor: "#fff",
+    url: "https://drive.google.com/drive/folders/1pOevEhJ4jOvC1ZGZNe8hG_jrWBZ_fpPj?usp=drive_link",
+    tags: ["React.js", "Health Management", "Reporting"],
+  },
+  {
+    id: 2,
+    title: "B One Consulting - Company Website",
+    subtitle: "Next.js & Company Website",
+    description:
+      "Professional company website with responsive design for optimal performance across devices",
+    image: website.bone,
+    borderColor: "#fff",
+    url: "https://drive.google.com/drive/folders/1JYC1xaDcFQLDTbzil0q285jbFqAcshT1?usp=drive_link",
+    tags: ["Next.js", "Landing Page", "Responsive Design"],
+  },
   {
     id: 5,
-    title: "The Plug",
-    subtitle: "React.js & Landing Page",
+    title: "The Plug - Brand Website",
+    subtitle: "React.js & Brand Website",
     description:
-      "Landing page with smooth user experience and modern UI design",
+      "Brand Website with smooth user experience and modern UI design",
     image: website.theplug,
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1fk_UY0OggvAtVxZ0w2tAaNV4cuXkIWFs?usp=drive_link",
@@ -60,7 +95,7 @@ export const webProject = [
   },
   {
     id: 6,
-    title: "North Sumatra Health Center",
+    title: "North Sumatra Health Center - Health Management System",
     subtitle: "Vue.js & Health Management",
     description:
       "Comprehensive health center application with service registration and robust reporting features",
@@ -71,7 +106,7 @@ export const webProject = [
   },
   {
     id: 7,
-    title: "ERP Hotel System",
+    title: "ERP Hotel System - Accounting Management",
     subtitle: "Next.js & Financial Reporting",
     description:
       "Hotel ERP system with journal view, financial reports, and cash tracking features",
@@ -82,7 +117,7 @@ export const webProject = [
   },
   {
     id: 8,
-    title: "Plural Landing Page",
+    title: "Plural - Company Website",
     subtitle: "Next.js & Custom Design",
     description:
       "Customized design and functionality created in collaboration with clients",
@@ -91,20 +126,10 @@ export const webProject = [
     url: "https://drive.google.com/drive/folders/1zyluqJBpET37wIPk2UrIojvjCwwkiQac?usp=drive_link",
     tags: ["Next.js", "Custom Design", "Client Collaboration"],
   },
-  {
-    id: 9,
-    title: "Banjarnegara Health Department",
-    subtitle: "React.js & Health Management",
-    description:
-      "Health examination system with custom forms and comprehensive reporting features",
-    image: website.eraport,
-    borderColor: "#fff",
-    url: "https://drive.google.com/drive/folders/1pOevEhJ4jOvC1ZGZNe8hG_jrWBZ_fpPj?usp=drive_link",
-    tags: ["React.js", "Health Management", "Reporting"],
-  },
+
   {
     id: 10,
-    title: "Toll Road Simulation",
+    title: "Toll Road Simulation - Interactive Application",
     subtitle: "Flask & Python",
     description:
       "Interactive toll road simulation with map visualization and vehicle movement tracking",
@@ -128,6 +153,28 @@ export const mobileProject = [
     tags: ["Flutter", "Cross-platform", "Mobile Development"],
   },
   {
+    id: 14,
+    title: "Raindo Ruscargo",
+    subtitle: "Flutter & Maintenance",
+    description:
+      "Bug fixing and maintenance for released application with client collaboration",
+    image: mobile.ruscargo,
+    borderColor: "#fff",
+    url: "https://drive.google.com/drive/folders/1MWvxeAwdpTXjDCmklrv570fhP-3o2CZ1?usp=drive_link",
+    tags: ["Flutter", "Bug Fixing", "App Maintenance"],
+  },
+  {
+    id: 16,
+    title: "Xperience - Employee Management App",
+    subtitle: "Flutter & Management",
+    description:
+      "Employee management application with data system improvements and bug fixes",
+    image: mobile.bone,
+    borderColor: "#fff",
+    url: "https://drive.google.com/drive/folders/1Y3vh2e-gUJRadeP-LKrS6xuinkm3tedc?usp=drive_link",
+    tags: ["Flutter", "Management", "Mobile Development"],
+  },
+  {
     id: 12,
     title: "Employee Cooperative Toyota",
     subtitle: "Flutter & Enterprise",
@@ -149,17 +196,7 @@ export const mobileProject = [
     url: "https://drive.google.com/drive/folders/1xxN1yh6MtAueTKRnjuy2QVPUz17p0HeD?usp=drive_link",
     tags: ["Flutter", "Project Management", "Subscription Service"],
   },
-  {
-    id: 14,
-    title: "Raindo Ruscargo",
-    subtitle: "Flutter & Maintenance",
-    description:
-      "Bug fixing and maintenance for released application with client collaboration",
-    image: mobile.ruscargo,
-    borderColor: "#fff",
-    url: "https://drive.google.com/drive/folders/1MWvxeAwdpTXjDCmklrv570fhP-3o2CZ1?usp=drive_link",
-    tags: ["Flutter", "Bug Fixing", "App Maintenance"],
-  },
+
   {
     id: 15,
     title: "Ideabox",

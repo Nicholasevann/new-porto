@@ -9,7 +9,8 @@ import natalie from "./natalie.png";
 import plural from "./plural.png";
 import theplug from "./theplug.png";
 import tollroad from "./tollroad.png";
-
+import bsi from "./bsi.png";
+import total from "./total.png";
 // Exporting images as an object
 const website = {
   accounting,
@@ -22,6 +23,8 @@ const website = {
   plural,
   theplug,
   tollroad,
+  bsi,
+  total,
 };
 
 export default website;
