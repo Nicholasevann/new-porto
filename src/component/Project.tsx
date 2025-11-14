@@ -8,8 +8,26 @@ import {
   shopifyProject,
   webProject,
 } from "@/constants";
+import { getDriveImages } from "@/constants/getDriveImages";
 
-// ProjectList Component
+const API_KEY = "AIzaSyALn1intEk8tYJgJQG5GVXcmQzWe2aMNG4";
+
+const getProjectsWithImages = async (projects: any[]) => {
+  return await Promise.all(
+    projects.map(async (project) => {
+      if (project.folderId) {
+        try {
+          const images = await getDriveImages(project.folderId, API_KEY);
+          return { ...project, images };
+        } catch {
+          return { ...project, images: [] };
+        }
+      }
+      return project;
+    })
+  );
+};
+
 const ProjectList = ({
   title,
   active,
@@ -37,30 +55,47 @@ const ProjectList = ({
   </motion.li>
 );
 
-// Main Project Component
 const Project = () => {
   const [selected, setSelected] = useState<string>("website");
-  const [data, setData] = useState<typeof webProject>(webProject);
-  const [caseStudy, setCaseStudy] = useState<string>("");
+  const [data, setData] = useState<any[]>(webProject);
+  const [caseStudy, setCaseStudy] = useState<string>("website");
+  const [loading, setLoading] = useState<boolean>(false);
 
   useEffect(() => {
-    switch (selected) {
-      case "website":
-        setData(webProject);
-        setCaseStudy("website");
-        break;
-      case "mobile":
-        setData(mobileProject);
-        setCaseStudy("mobile");
-        break;
-      case "shopify":
-        setData(shopifyProject);
-        setCaseStudy("shopify");
-        break;
-      default:
-        setData(webProject);
-        setCaseStudy("website");
-    }
+    let isMounted = true;
+    setLoading(true);
+
+    const fetchData = async () => {
+      let projects;
+      switch (selected) {
+        case "website":
+          projects = webProject;
+          setCaseStudy("website");
+          break;
+        case "mobile":
+          projects = mobileProject;
+          setCaseStudy("mobile");
+          break;
+        case "shopify":
+          projects = shopifyProject;
+          setCaseStudy("shopify");
+          break;
+        default:
+          projects = webProject;
+          setCaseStudy("website");
+      }
+      const projectsWithImages = await getProjectsWithImages(projects);
+      if (isMounted) {
+        setData(projectsWithImages);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+
+    return () => {
+      isMounted = false;
+    };
   }, [selected]);
 
   return (
@@ -99,14 +134,20 @@ const Project = () => {
             </div>
 
             <div className="mt-8">
-              <ChromaGrid
-                items={data}
-                radius={300}
-                damping={0.45}
-                fadeOut={0.6}
-                ease="power3.out"
-                caseStudy={caseStudy}
-              />
+              {loading ? (
+                <div className="text-white text-center py-12">
+                  Loading projects...
+                </div>
+              ) : (
+                <ChromaGrid
+                  items={data}
+                  radius={300}
+                  damping={0.45}
+                  fadeOut={0.6}
+                  ease="power3.out"
+                  caseStudy={caseStudy}
+                />
+              )}
             </div>
           </motion.div>
         </div>

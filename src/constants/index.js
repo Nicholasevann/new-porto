@@ -219,7 +219,6 @@ export const shopifyProject = [
     image: shopify.eczewear, // Use the correct image from your assets
     video: "/eczewear.mp4",
     borderColor: "#fff",
-    url: "https://drive.google.com/drive/folders/eczewear-folder-id?usp=drive_link",
     tags: ["Shopify", "E-commerce", "Web Development"],
   },
   {
@@ -231,7 +230,6 @@ export const shopifyProject = [
     image: shopify.bubbaduck, // Use the correct image from your assets
     video: "/bubbaduck.mp4",
     borderColor: "#fff",
-    url: "https://drive.google.com/drive/folders/bubbaduck-folder-id?usp=drive_link",
     tags: ["Shopify", "Brand Store", "Online Shop"],
   },
 ];
@@ -258,16 +256,16 @@ mobileProject.forEach((project) => {
   project.images = [];
 });
 
-async function fillProjectImages(projects) {
-  for (const project of projects) {
-    if (project.folderId) {
-      project.images = await getDriveImages(project.folderId, API_KEY);
-    }
-  }
-}
+// async function fillProjectImages(projects) {
+//   for (const project of projects) {
+//     if (project.folderId) {
+//       project.images = await getDriveImages(project.folderId, API_KEY);
+//     }
+//   }
+// }
 
-await fillProjectImages(webProject);
-await fillProjectImages(mobileProject);
+// await fillProjectImages(webProject);
+// await fillProjectImages(mobileProject);
 
 const experiences = [
   {
