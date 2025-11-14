@@ -9,10 +9,27 @@ import {
   webProject,
 } from "@/constants";
 import { getDriveImages } from "@/constants/getDriveImages";
+import { StaticImageData } from "next/image";
 
 const API_KEY = "AIzaSyALn1intEk8tYJgJQG5GVXcmQzWe2aMNG4";
 
-const getProjectsWithImages = async (projects: any[]) => {
+type ProjectItem = {
+  id: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  image: string | StaticImageData;
+  borderColor: string;
+  url?: string;
+  tags: string[];
+  folderId?: string;
+  images: string[];
+  video?: string;
+};
+
+const getProjectsWithImages = async (
+  projects: ProjectItem[]
+): Promise<ProjectItem[]> => {
   return await Promise.all(
     projects.map(async (project) => {
       if (project.folderId) {
@@ -57,7 +74,7 @@ const ProjectList = ({
 
 const Project = () => {
   const [selected, setSelected] = useState<string>("website");
-  const [data, setData] = useState<any[]>(webProject);
+  const [data, setData] = useState<ProjectItem[]>(webProject as ProjectItem[]);
   const [caseStudy, setCaseStudy] = useState<string>("website");
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -66,22 +83,22 @@ const Project = () => {
     setLoading(true);
 
     const fetchData = async () => {
-      let projects;
+      let projects: ProjectItem[];
       switch (selected) {
         case "website":
-          projects = webProject;
+          projects = webProject as ProjectItem[];
           setCaseStudy("website");
           break;
         case "mobile":
-          projects = mobileProject;
+          projects = mobileProject as ProjectItem[];
           setCaseStudy("mobile");
           break;
         case "shopify":
-          projects = shopifyProject;
+          projects = shopifyProject as ProjectItem[];
           setCaseStudy("shopify");
           break;
         default:
-          projects = webProject;
+          projects = webProject as ProjectItem[];
           setCaseStudy("website");
       }
       const projectsWithImages = await getProjectsWithImages(projects);

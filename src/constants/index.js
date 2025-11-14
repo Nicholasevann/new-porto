@@ -2,10 +2,10 @@ import { Smak, Unikom } from "../assets/logo";
 import mobile from "../assets/mobile-projects";
 import website from "../assets/website-projects";
 import shopify from "../assets/shopify-projects";
-import { getDriveImages } from "./getDriveImages";
-import { video } from "framer-motion/client";
+// import { getDriveImages } from "./getDriveImages";
+// import { video } from "framer-motion/client";
 
-const API_KEY = "AIzaSyALn1intEk8tYJgJQG5GVXcmQzWe2aMNG4";
+// const API_KEY = "AIzaSyALn1intEk8tYJgJQG5GVXcmQzWe2aMNG4";
 export const webProject = [
   {
     id: 1,
@@ -17,6 +17,7 @@ export const webProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/18FxTca_YaZh5ZOjhNl3w-Gm8vwal6uq6?usp=drive_link",
     tags: ["Next.js", "Web Development", "Property Investment"],
+    images: [],
   },
   {
     id: 11,
@@ -28,6 +29,7 @@ export const webProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/19rrEqEYSKnqV--EElWO8tDDjMRW82bZ7?usp=drive_link",
     tags: ["Next JS", "Investment", "Property Rental"],
+    images: [],
   },
   {
     id: 3,
@@ -39,6 +41,7 @@ export const webProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1sqr0tzwLkei1xxef3U_pK_1m9t_E1Xau?usp=drive_link",
     tags: ["React.js", "Online Education", "Course Management"],
+    images: [],
   },
   {
     id: 4,
@@ -50,6 +53,7 @@ export const webProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1ITE5PSubFniqw-VE7OrGmHO5SxqWNyQ2?usp=drive_link",
     tags: ["Next.js", "Reservations", "User Engagement"],
+    images: [],
   },
   {
     id: 12,
@@ -61,6 +65,7 @@ export const webProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1uXDs_JnTzznKlgZNA1QXwROIA2uwZ6-t?usp=drive_link",
     tags: ["Vue JS", "Nuxt", "Data Management"],
+    images: [],
   },
   {
     id: 9,
@@ -72,6 +77,7 @@ export const webProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1pOevEhJ4jOvC1ZGZNe8hG_jrWBZ_fpPj?usp=drive_link",
     tags: ["React.js", "Health Management", "Reporting"],
+    images: [],
   },
   {
     id: 2,
@@ -83,6 +89,7 @@ export const webProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1JYC1xaDcFQLDTbzil0q285jbFqAcshT1?usp=drive_link",
     tags: ["Next.js", "Landing Page", "Responsive Design"],
+    images: [],
   },
   {
     id: 5,
@@ -94,6 +101,7 @@ export const webProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1fk_UY0OggvAtVxZ0w2tAaNV4cuXkIWFs?usp=drive_link",
     tags: ["React.js", "Landing Page", "UI/UX"],
+    images: [],
   },
   {
     id: 6,
@@ -105,6 +113,7 @@ export const webProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1nNfezP3ODiEdR9vXhAwPzx2Itqfe36iT?usp=drive_link",
     tags: ["Vue.js", "Nuxt", "Health Management"],
+    images: [],
   },
   {
     id: 7,
@@ -116,6 +125,7 @@ export const webProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1K4xJXmH9M70A5JavisjCcfXY74jV4gTy?usp=drive_link",
     tags: ["Next.js", "Financial Reporting", "ERP System"],
+    images: [],
   },
   {
     id: 8,
@@ -127,6 +137,7 @@ export const webProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1zyluqJBpET37wIPk2UrIojvjCwwkiQac?usp=drive_link",
     tags: ["Next.js", "Custom Design", "Client Collaboration"],
+    images: [],
   },
   {
     id: 10,
@@ -138,6 +149,7 @@ export const webProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1AvRJ28KHWAhjFv2jcZu19EaeAnJ4Zdag?usp=drive_link",
     tags: ["Flask", "Python", "Simulation"],
+    images: [],
   },
 ];
 
@@ -152,6 +164,7 @@ export const mobileProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/12mC8r1FKj-mDfmoE2JMc3VF_KjXMIfDa?usp=drive_link",
     tags: ["Flutter", "Cross-platform", "Mobile Development"],
+    images: [],
   },
   {
     id: 14,
@@ -163,6 +176,7 @@ export const mobileProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1MWvxeAwdpTXjDCmklrv570fhP-3o2CZ1?usp=drive_link",
     tags: ["Flutter", "Bug Fixing", "App Maintenance"],
+    images: [],
   },
   {
     id: 16,
@@ -174,6 +188,7 @@ export const mobileProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1Y3vh2e-gUJRadeP-LKrS6xuinkm3tedc?usp=drive_link",
     tags: ["Flutter", "Management", "Mobile Development"],
+    images: [],
   },
   {
     id: 12,
@@ -185,6 +200,7 @@ export const mobileProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1yfizrKuKTvYNg0tY5rgWRAIE7VJLQu0b?usp=drive_link",
     tags: ["Flutter", "App Maintenance", "Enterprise App"],
+    images: [],
   },
   {
     id: 13,
@@ -196,6 +212,7 @@ export const mobileProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1xxN1yh6MtAueTKRnjuy2QVPUz17p0HeD?usp=drive_link",
     tags: ["Flutter", "Project Management", "Subscription Service"],
+    images: [],
   },
   {
     id: 15,
@@ -207,6 +224,7 @@ export const mobileProject = [
     borderColor: "#fff",
     url: "https://drive.google.com/drive/folders/1g83SM6yEKS91J1G7ue1bSdz3ihDfM7Py?usp=drive_link",
     tags: ["React Native", "Idea Management", "Mobile Development"],
+    images: [],
   },
 ];
 export const shopifyProject = [
@@ -220,6 +238,7 @@ export const shopifyProject = [
     video: "/eczewear.mp4",
     borderColor: "#fff",
     tags: ["Shopify", "E-commerce", "Web Development"],
+    images: [],
   },
   {
     id: 22,
@@ -231,6 +250,7 @@ export const shopifyProject = [
     video: "/bubbaduck.mp4",
     borderColor: "#fff",
     tags: ["Shopify", "Brand Store", "Online Shop"],
+    images: [],
   },
 ];
 
