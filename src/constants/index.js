@@ -1,7 +1,9 @@
 import { Smak, Unikom } from "../assets/logo";
 import mobile from "../assets/mobile-projects";
 import website from "../assets/website-projects";
+import shopify from "../assets/shopify-projects";
 import { getDriveImages } from "./getDriveImages";
+import { video } from "framer-motion/client";
 
 const API_KEY = "AIzaSyALn1intEk8tYJgJQG5GVXcmQzWe2aMNG4";
 export const webProject = [
@@ -207,10 +209,37 @@ export const mobileProject = [
     tags: ["React Native", "Idea Management", "Mobile Development"],
   },
 ];
+export const shopifyProject = [
+  {
+    id: 21,
+    title: "Eczewear - Shopify Website",
+    subtitle: "Shopify & E-commerce",
+    description:
+      "Custom Shopify store for Eczewear, featuring product catalog, secure checkout, responsive design, and integrated payment gateways. Includes inventory management, promotional banners, and customer review system for enhanced shopping experience.",
+    image: shopify.eczewear, // Use the correct image from your assets
+    video: "/eczewear.mp4",
+    borderColor: "#fff",
+    url: "https://drive.google.com/drive/folders/eczewear-folder-id?usp=drive_link",
+    tags: ["Shopify", "E-commerce", "Web Development"],
+  },
+  {
+    id: 22,
+    title: "Bubbaduck - Shopify Website",
+    subtitle: "Shopify & Brand Store",
+    description:
+      "Shopify-powered online store for Bubbaduck, offering branded merchandise, seamless navigation, mobile optimization, and marketing integrations. Features include product filtering, wishlist, and analytics dashboard for store performance tracking.",
+    image: shopify.bubbaduck, // Use the correct image from your assets
+    video: "/bubbaduck.mp4",
+    borderColor: "#fff",
+    url: "https://drive.google.com/drive/folders/bubbaduck-folder-id?usp=drive_link",
+    tags: ["Shopify", "Brand Store", "Online Shop"],
+  },
+];
 
 export const listProject = [
   { id: "website", title: "Web Development" },
   { id: "mobile", title: "Mobile Development" },
+  { id: "shopify", title: "Shopify Development" },
 ];
 
 function extractFolderId(url) {

@@ -6,8 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 export interface ChromaItem {
-  image: string | StaticImageData; // Use string for dynamic images
-  images?: string[]; // Array of images for modal
+  image: string | StaticImageData;
+  images?: string[];
   title: string;
   subtitle: string;
   description?: string;
@@ -17,7 +17,8 @@ export interface ChromaItem {
   borderColor?: string;
   gradient?: string;
   url?: string;
-  type?: "website" | "mobile";
+  type?: "website" | "mobile" | "shopify";
+  video?: string; // <-- Add this line
 }
 
 export interface ChromaGridProps {
@@ -182,34 +183,50 @@ export const ChromaGrid: React.FC<ChromaGridProps> = ({
             }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Swiper Images */}
-            {selected.images && selected.images.length > 0 && (
-              <Swiper
-                spaceBetween={16}
-                slidesPerView={1}
+            {/* Shopify Video Popup */}
+            {caseStudy === "shopify" && selected.video && (
+              <video
+                src={selected.video}
+                controls
+                autoPlay
+                loop
+                className="w-full md:w-2/3 2xl:w-1/2"
                 style={{
-                  width: "100%",
-                  height: isMobile ? 350 : 550,
                   borderRadius: "16px",
+                  marginBottom: "2rem",
                 }}
-                autoplay={{ delay: 3000 }}
-                loop={true}
-              >
-                {selected.images.map((img, idx) => (
-                  <SwiperSlide key={idx} className="rounded">
-                    <Image
-                      src={img}
-                      alt={selected.title + " image " + idx}
-                      fill
-                      style={{
-                        objectFit: "contain",
-                        borderRadius: "16px",
-                      }}
-                    />
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+              />
             )}
+            {/* Swiper Images */}
+            {(!selected.video || caseStudy !== "shopify") &&
+              selected.images &&
+              selected.images.length > 0 && (
+                <Swiper
+                  spaceBetween={16}
+                  slidesPerView={1}
+                  style={{
+                    width: "100%",
+                    height: isMobile ? 350 : 550,
+                    borderRadius: "16px",
+                  }}
+                  autoplay={{ delay: 3000 }}
+                  loop={true}
+                >
+                  {selected.images.map((img, idx) => (
+                    <SwiperSlide key={idx} className="rounded">
+                      <Image
+                        src={img}
+                        alt={selected.title + " image " + idx}
+                        fill
+                        style={{
+                          objectFit: "contain",
+                          borderRadius: "16px",
+                        }}
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              )}
             {/* Title & Description */}
             <div className="flex flex-col p-5 md:p-0 md:mt-10 max-w-4xl">
               <h2 className="text-xl font-bold text-black">{selected.title}</h2>

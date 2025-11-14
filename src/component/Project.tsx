@@ -2,7 +2,12 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ChromaGrid from "./chroma-grid/ChromaGrid";
-import { listProject, mobileProject, webProject } from "@/constants";
+import {
+  listProject,
+  mobileProject,
+  shopifyProject,
+  webProject,
+} from "@/constants";
 
 // ProjectList Component
 const ProjectList = ({
@@ -47,6 +52,10 @@ const Project = () => {
       case "mobile":
         setData(mobileProject);
         setCaseStudy("mobile");
+        break;
+      case "shopify":
+        setData(shopifyProject);
+        setCaseStudy("shopify");
         break;
       default:
         setData(webProject);
