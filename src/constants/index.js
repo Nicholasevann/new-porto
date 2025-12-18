@@ -292,7 +292,7 @@ const experiences = [
     title: "Fullstack Website & Mobile Developer",
     company_name: "PT B One Consulting",
     iconBg: "#383E56",
-    date: "September 2024 - Current",
+    date: "September 2025 - Current",
     location: "Bali",
     points: [
       "Built full‑stack web applications using Next.js, Vue.js, Nest.Js and Express.js with TypeScript.",
